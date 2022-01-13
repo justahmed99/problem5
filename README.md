@@ -55,15 +55,15 @@ Untuk menambahkan vendor pada file **app/config.toml**, Anda dapat menggunakan f
 [[vendor]]
     id = "twilio1"
     name = "Twilio 1"
-    twilio_sid = "ACc7c9600503357386f85552ed6de45e6e"
-    twilio_auth_token = "ac767fb4ca4203a91b4da1a93182a054"
-    twilio_number = "+19402836222"
+    twilio_sid = "{twilio_account_sid}"
+    twilio_auth_token = "{twilio_auth_token}"
+    twilio_number = "{twilio_number}"
 [[vendor]]
     id = "twilio2"
     name = "Twilio 2"
-    twilio_sid = "ACc7c9600503357386f85552ed6de45e6e"
-    twilio_auth_token = "ac767fb4ca4203a91b4da1a93182a054"
-    twilio_number = "+19402836222"
+    twilio_sid = "{twilio_account_sid}"
+    twilio_auth_token = "{twilio_auth_token}"
+    twilio_number = "{twilio_number}"
 ```
 
 ## Menjalankan program
