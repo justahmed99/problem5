@@ -1,0 +1,14 @@
+title = "TOML Configuration"
+
+[[vendor]]
+    id = "twilio1"
+    name = "Twilio 1"
+    twilio_sid = "ACc7c9600503357386f85552ed6de45e6e"
+    twilio_auth_token = "ac767fb4ca4203a91b4da1a93182a054"
+    twilio_number = "+19402836222"
+[[vendor]]
+    id = "twilio2"
+    name = "Twilio 2"
+    twilio_sid = "ACc7c9600503357386f85552ed6de45e6e"
+    twilio_auth_token = "ac767fb4ca4203a91b4da1a93182a054"
+    twilio_number = "+19402836222"

@@ -1,0 +1,151 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "description": "Ahmad Mujahid Abdurrahman (Kitabisa.com Basic Test)",
+        "version": "1.0.0",
+        "title": "Problem 3 API Documentation"
+    },
+    "tags": [
+        {
+            "name": "SMS Vendor API",
+            "description": "SMS Vendor API"
+        }
+    ],
+    "servers": [
+        {
+            "url": "/"
+        }
+    ],
+    "components": {
+        "schemas": {
+            "SendSMS": {
+                "type": "object",
+                "properties": {
+                    "number": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "SwitchVendor": {
+                "type": "object",
+                "properties": {
+                    "vendor_id": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Register": {
+                "type": "object",
+                "properties": {
+                    "number": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    },
+    "paths": {
+        "/send": {
+            "post": {
+                "tags": [
+                    "Send message API"
+                ],
+                "summary": "Send message to registered number",
+                "requestBody": {
+                    "description": "Use this API to send message to registered number on your Twilio account",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SendSMS"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Team added",
+                        "schema": {
+                            "$ref": "#/components/schemas/SendSMS"
+                        }
+                    },
+                    "403": {
+                        "description": "Team already exist",
+                        "schema": {
+                            "$ref": "#/components/schemas/SendSMS"
+                        }
+                    }
+                }
+            }
+        },
+        "/switch": {
+            "post": {
+                "tags": [
+                    "Switch vendor API"
+                ],
+                "summary": "Switch vendor between registered vendors",
+                "requestBody": {
+                    "description": "Use this API to switch between vendors that is registered on app/config.toml",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/SwitchVendor"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/SwitchVendor"
+                        }
+                    },
+                    "404": {
+                        "description": "NOT FOUND",
+                        "schema": {
+                            "$ref": "#/components/schemas/SwitchVendor"
+                        }
+                    }
+                }
+            }
+        },
+        "/register": {
+            "post": {
+                "tags": [
+                    "Register number API (Premium Twilio Account Only)"
+                ],
+                "summary": "Register number to send SMS to",
+                "requestBody": {
+                    "description": "Use this API to register caller number to your Twilio Account",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Register"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/components/schemas/Register"
+                        }
+                    },
+                    "500": {
+                        "description": "IF YOU ARE NOT USING TWILIO PREMIUM ACCOUNT",
+                        "schema": {
+                            "$ref": "#/components/schemas/Register"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
